@@ -3,7 +3,20 @@ public class FlappyWorld extends World
   public FlappyWorld(){
   
     //make world w/ 600x400 cells w/ cell size of 1x1 pixels
-    super (600, 400, 1);
+    super (600, 400, 1, false);
+    
+    // create a bird object
+    
+    FlappyBird flappy = new FlappyBird();
     
     // add a bird
     addObject(flappy, 100, getHeight()/2);
+    
+    public void act(){
+      counter++;
+      if (counter == 100){
+          counter = 0;
+      }
+    }
+}
+}
