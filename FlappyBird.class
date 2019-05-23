@@ -17,15 +17,25 @@ public class FlappyBird extends SmoothMover
        
     public void act() 
     {
+        if (getOneIntersectingObject(Pipe.class) != null)
+        {
+               //add GameOver class to Actor
+            GameOver gameOver = new GameOver();
+            getWorld().addObject(gameOver, getWidth()/2, getWorld().getHeight()/2);
+            Greenfoot.stop();            
+        }
+        
         if ( dy < 10 && dy > -10){
-          //try replacing setroation with turn(30)
+          //try replacing setrotation with turn(30)
           setRotation(30);
         }
         
         setLocation( geX(), (int) (getY() + dy) );
+        
         checkKeyPress();
           
         if (getY() > getWorld().getHeight()) {
+            //add GameOver class to Actor
             GameOver gameOver = new GameOver();
             getWorld().addObject(gameOver, getWidth()/2, getWorld().getHeight()/2);
             Greenfoot.stop();
