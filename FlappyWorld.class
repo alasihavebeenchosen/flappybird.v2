@@ -1,0 +1,9 @@
+public class FlappyWorld extends World
+{
+  public FlappyWorld(){
+  
+    //make world w/ 600x400 cells w/ cell size of 1x1 pixels
+    super (600, 400, 1);
+    
+    // add a bird
+    addObject(flappy, 100, getHeight()/2);
